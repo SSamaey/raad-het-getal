@@ -1,15 +1,12 @@
 <h2>Raad het getal</h2>
 <p>Raad het getal tussen 0 en 100</p>
 <div *ngIf=!gameOn>
-  <p>Game is off</p>
   <button (click)="startGame()">Start nieuw spel</button>
 </div>
 
-<div *ngIf=gameOn>
-  <p>Game is on</p>
+<div *ngIf=gameOn> 
   <p>Je hebt nog {{ guessesLeft }} beurten over.</p>
-<!--  <input #guess/>
-  <button (click)="guess(guess.value)">Doe een gok</button>-->
-  <button (click)="guess()">Doe een gok</button>
-
+  <p><input #guessInput/></p>
+  <button (click)="guess(guessInput.value)">Doe een gok</button>
 </div>
+<p *ngIf="message">{{ message }}</p>
