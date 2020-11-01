@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
@@ -43,3 +44,5 @@ export class AppComponent {
     this.gameOn = false;
   }
 }
+
+

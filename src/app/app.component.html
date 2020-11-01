@@ -1,12 +1,25 @@
-<h2>Raad het getal</h2>
-<p>Raad het getal tussen 0 en 100</p>
-<div *ngIf=!gameOn>
-  <button (click)="startGame()">Start nieuw spel</button>
-</div>
 
-<div *ngIf=gameOn> 
-  <p>Je hebt nog {{ guessesLeft }} beurten over.</p>
-  <p><input #guessInput/></p>
-  <button (click)="guess(guessInput.value)">Doe een gok</button>
-</div>
-<p *ngIf="message">{{ message }}</p>
+<mat-card>
+  <mat-card-title>Raad het getal</mat-card-title>
+  <mat-card-subtitle>Raad het getal tussen 0 en 100</mat-card-subtitle>
+  <mat-card-content>
+  <div *ngIf=!gameOn>
+    <button mat-raised-button color="primary" (click)="startGame()">Start nieuw spel</button>
+
+  </div>
+
+
+  <div *ngIf=gameOn> 
+    <div>
+      <mat-form-field>
+        <mat-label>Kies je getal</mat-label>
+        <input matInput type="number" min="0" max="99" #guessInput/>
+      </mat-form-field>
+    </div>
+    <button (click)="guess(guessInput.value)" mat-raised-button color="primary"
+      matBadge="{{ guessesLeft }}" matBadgeColor="accent" matBadgePosition="after">Doe een gok</button>
+
+  </div>
+  <p *ngIf="message">{{ message }}</p>
+</mat-card-content>
+</mat-card>
